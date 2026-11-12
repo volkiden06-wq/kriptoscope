@@ -41,7 +41,47 @@
  #coinModal .modal-card{padding:8px}
  #coinModalBody .interactive-chart{margin:5px 0}
 }
-.position-row:hover{background:rgba(70,130,190,.13)}.position-row:focus{outline:2px solid #58a1ff;outline-offset:-2px}.position-row td:first-child{color:#8ec5ff}</style></style></head><body><main class="wrap"><header class="top"><div class="brand"><div class="logo">K</div><div><h1>KRIPTOSCOPE <span style="color:#69a5ff">PRO</span></h1><small>BINANCE MARKET INTELLIGENCE</small></div></div><div class="status"><i class="dot" id="dot"></i><span id="live">Sunucu bağlantısı kuruluyor</span> • <span id="clock">--:--:--</span></div></header>
+.position-row:hover{background:rgba(70,130,190,.13)}.position-row:focus{outline:2px solid #58a1ff;outline-offset:-2px}.position-row td:first-child{color:#8ec5ff}</style></style><style id="mobile-overflow-fix">
+/* Global viewport containment */
+html,body{width:100%;max-width:100%;margin:0;overflow-x:hidden!important}
+body{min-width:0!important}
+.wrap{width:100%;max-width:1440px;min-width:0;margin:0 auto;padding:clamp(10px,2.5vw,20px)}
+.grid,.grid>*,.demo-wrap,.demo-cols,.demo-cols>div,.panel,.stats,.stat{min-width:0;max-width:100%}
+.grid{grid-template-columns:minmax(0,1.45fr) minmax(0,.85fr)}
+.demo-cols{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.tablewrap,.demo-table{display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto!important;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.tablewrap table,.demo-table table{width:100%;max-width:none;border-collapse:collapse}
+.tablewrap th,.tablewrap td,.demo-table th,.demo-table td{white-space:nowrap}
+.toolbar{max-width:100%;min-width:0}
+.toolbar input{min-width:0;max-width:100%}
+img,svg,canvas,video{max-width:100%}
+@media(max-width:700px){
+ .wrap{padding:10px}
+ .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+ .demo-cols{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+ .demo-cols>div{width:100%;max-width:100%;overflow:hidden}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .stat,.demo-stat{padding:10px;overflow-wrap:anywhere}
+ .stat strong,.demo-stat strong{font-size:clamp(15px,4.4vw,19px);overflow-wrap:anywhere}
+ .panel{padding:11px;border-radius:13px}
+ .demo-wrap{padding:11px}
+ .top{flex-wrap:wrap;gap:10px}
+ .brand h1{font-size:17px}
+ .tablewrap table{min-width:560px}
+ .demo-table table{min-width:570px}
+ .demo-actions{align-items:flex-start}
+ .demo-actions>button{max-width:100%;white-space:normal}
+ .footer{overflow-wrap:anywhere}
+}
+@media(max-width:380px){
+ .wrap{padding:7px}
+ .panel,.demo-wrap{padding:9px}
+ .stats{gap:6px}
+ .demo-stat label,.stat label{font-size:9px}
+ .demo-stat strong,.stat strong{font-size:14px}
+ .toolbar .btn{padding:8px 9px;font-size:12px}
+}
+</style></head><body><main class="wrap"><header class="top"><div class="brand"><div class="logo">K</div><div><h1>KRIPTOSCOPE <span style="color:#69a5ff">PRO</span></h1><small>BINANCE MARKET INTELLIGENCE</small></div></div><div class="status"><i class="dot" id="dot"></i><span id="live">Sunucu bağlantısı kuruluyor</span> • <span id="clock">--:--:--</span></div></header>
 <div class="toolbar"><input id="search" placeholder="Coin ara (BTC, ETH...)"><select id="filter"><option value="all">Tüm USDT pariteleri</option><option value="up">Yükselenler</option><option value="down">Düşenler</option><option value="volume">Yüksek hacim</option></select><button class="btn primary" id="scan">⟳ ŞİMDİ TARA</button><button class="btn" id="fav">☆ Favoriler</button><button class="btn" id="notify">◉ Bildirimleri aç</button></div>
 <section class="stats"><div class="stat"><label>TAKİP EDİLEN PARİTE</label><strong id="count">—</strong></div><div class="stat"><label>YÜKSELENLER</label><strong class="positive" id="up">—</strong></div><div class="stat"><label>DÜŞENLER</label><strong class="negative" id="down">—</strong></div><div class="stat"><label>AL / SAT ADAYI</label><strong id="nSignals">—</strong></div></section>
 <section class="demo-wrap panel"><div class="demo-actions"><div><h2 style="margin:0 0 5px">OTOMATİK İŞLEM • DEMO HESAP</h2><div class="muted">Gerçek emir gönderilmez • 1.000 USDT sanal bakiye • Günlük işlem adedi sınırsız • Risk kontrollü</div></div><span class="demo-tag">SADECE SİMÜLASYON</span></div><div class="demo-grid" style="margin-top:14px"><div class="demo-stat"><label>TOPLAM VARLIK (NAKİT + COIN)</label><strong id="demoEquity">1.000,00</strong></div><div class="demo-stat"><label>KULLANILABİLİR NAKİT</label><strong id="demoCash">1.000,00</strong></div><div class="demo-stat"><label>GERÇEKLEŞEN K/Z</label><strong id="demoRealized">0,00</strong></div><div class="demo-stat"><label>AÇIK İŞLEM / TOPLAM K/Z</label><strong id="demoOpen">0 / 0,00</strong></div></div><div class="muted" id="demoBreakdown" style="margin:-2px 0 14px;line-height:1.6">Toplam portföy = kullanılabilir nakit + açık coinlerin güncel değeri.</div><div class="demo-cols"><div><h2>AÇIK DEMO İŞLEMLERİ</h2><div class="demo-table"><table><thead><tr><th>COIN</th><th>GİRİŞ</th><th>SON FİYAT</th><th>STOP / HEDEF</th><th>K/Z</th></tr></thead><tbody id="demoPositions"><tr><td colspan="5" class="empty">Henüz açık demo işlemi yok.</td></tr></tbody></table></div></div><div><h2>SON DEMO İŞLEMLERİ</h2><div class="demo-table" id="demoTrades"><div class="empty">Henüz kapanan işlem yok.</div></div></div></div><div class="demo-actions" style="margin-top:12px"><span class="muted" id="demoStatus">Demo motoru sinyal bekliyor.</span><button class="btn" id="demoReset">Demo hesabını sıfırla</button></div></section><div class="grid"><section class="panel"><h2>CANLI PİYASA • USDT <span class="muted" id="updated"></span></h2><div class="tablewrap"><table><thead><tr><th>PARİTE</th><th>SON FİYAT</th><th>24S DEĞİŞİM</th><th>24S HACİM</th><th>İZLE</th></tr></thead><tbody id="markets"><tr><td colspan="5" class="empty">Piyasa verileri sunucudan alınıyor…</td></tr></tbody></table></div><div id="marketError"></div></section><aside><section class="panel"><h2>GÜÇLÜ SİNYALLER</h2><div id="signals"><div class="empty">Tarama başlatılıyor…</div></div></section><section class="panel section"><h2>SEÇİLİ PARİTE ANALİZİ</h2><div id="detail" class="empty">Analiz için listeden coin seç.</div></section><section class="panel section"><h2>SON SİNYAL GEÇMİŞİ</h2><div id="history"><div class="empty">Henüz sinyal yok.</div></div></section><div class="notice">Sinyaller teknik göstergelere dayalıdır; yatırım tavsiyesi değildir.</div></aside></div><div class="footer">KRIPTOSCOPE PRO • Binance halka açık verileri • Piyasa yenileme: 30 saniye • Güçlü sinyal taraması: 60 saniye</div></main>
